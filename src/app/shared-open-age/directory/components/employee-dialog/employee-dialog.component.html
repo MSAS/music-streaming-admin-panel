@@ -1,0 +1,14 @@
+<mat-progress-spinner mode="indeterminate" *ngIf="isProcessing"></mat-progress-spinner>
+<ng-container *ngIf="properties && !isProcessing">
+    <h1 mat-dialog-title>{{properties.profile.firstName }} {{properties.profile.lastName}}</h1>
+
+    <div mat-dialog-content>
+        <p>{{properties.designation?.name}}</p>
+        <p>Code: {{properties.code}}</p>
+        <img mat-card-image onerror="if (this.src != 'assets/images/no-user-image.png') this.src = 'assets/images/no-user-image.png';" alt="employee pic" [src]="properties.profile.pic.url || 'assets/images/no-user-image.png'">
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="dialogRef.close()">Cancel</button>
+        <button mat-raised-button (click)="openEditor()">Edit</button>
+    </div>
+</ng-container>

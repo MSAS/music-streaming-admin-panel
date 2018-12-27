@@ -1,0 +1,17 @@
+.login-card {
+    max-width: 500px;
+    /* min-width: 60%; */
+    margin-left: auto;
+    margin-right: auto
+}
+
+.login-card .footer {
+    padding-top: 20px;
+}
+
+
+/* .app-name {
+    text-align: center;
+    color: whitesmoke;
+    margin-left: 2%;
+} */

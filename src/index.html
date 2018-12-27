@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="fragment" content="!" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>My MD</title>
+  <base href="/">
+  <script type="text/javascript" src=" http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<style>
+  .starting {
+    position: fixed;
+    /* width: 100%; */
+    right: 0;
+    top: 0px;
+    left: 0;
+    height: 100%;
+    /* background-color: rgba(14, 46, 71, 0.8) !important; */
+    overflow-y: auto;
+  }
+
+  .cssload-box-loading {
+    width: 47px;
+    height: 47px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .cssload-box-loading:before {
+    content: '';
+    width: 47px;
+    height: 5px;
+    background: rgb(10, 0, 10);
+    opacity: 0.1;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow 0.65s linear infinite;
+    -o-animation: shadow 0.65s linear infinite;
+    -ms-animation: shadow 0.65s linear infinite;
+    -webkit-animation: shadow 0.65s linear infinite;
+    -moz-animation: shadow 0.65s linear infinite;
+  }
+
+  .cssload-box-loading:after {
+    content: '';
+    width: 47px;
+    height: 47px;
+    background: rgb(0, 168, 198);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    animation: cssload-animate 0.65s linear infinite;
+    -o-animation: cssload-animate 0.65s linear infinite;
+    -ms-animation: cssload-animate 0.65s linear infinite;
+    -webkit-animation: cssload-animate 0.65s linear infinite;
+    -moz-animation: cssload-animate 0.65s linear infinite;
+  }
+
+  @keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @-o-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      -o-transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      -o-transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      -o-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -o-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @-ms-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      -ms-transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      -ms-transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      -ms-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -ms-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @-webkit-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      -webkit-transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      -webkit-transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      -webkit-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -webkit-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @-moz-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      -moz-transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      -moz-transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      -moz-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -moz-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @keyframes shadow {
+
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+
+  @-o-keyframes shadow {
+
+    0%,
+    100% {
+      -o-transform: scale(1, 1);
+    }
+
+    50% {
+      -o-transform: scale(1.2, 1);
+    }
+  }
+
+  @-ms-keyframes shadow {
+
+    0%,
+    100% {
+      -ms-transform: scale(1, 1);
+    }
+
+    50% {
+      -ms-transform: scale(1.2, 1);
+    }
+  }
+
+  @-webkit-keyframes shadow {
+
+    0%,
+    100% {
+      -webkit-transform: scale(1, 1);
+    }
+
+    50% {
+      -webkit-transform: scale(1.2, 1);
+    }
+  }
+
+  @-moz-keyframes shadow {
+
+    0%,
+    100% {
+      -moz-transform: scale(1, 1);
+    }
+
+    50% {
+      -moz-transform: scale(1.2, 1);
+    }
+
+    75% {
+      -webkit-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -webkit-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @-moz-keyframes cssload-animate {
+    17% {
+      border-bottom-right-radius: 3px;
+    }
+
+    25% {
+      -moz-transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+      -moz-transform: translateY(17px) scale(1, 0.9) rotate(45deg);
+      border-bottom-right-radius: 38px;
+    }
+
+    75% {
+      -moz-transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+      -moz-transform: translateY(0) rotate(90deg);
+    }
+  }
+
+  @keyframes shadow {
+
+    0%,
+    100% {
+      transform: scale(1, 1);
+    }
+
+    50% {
+      transform: scale(1.2, 1);
+    }
+  }
+
+  @-o-keyframes shadow {
+
+    0%,
+    100% {
+      -o-transform: scale(1, 1);
+    }
+
+    50% {
+      -o-transform: scale(1.2, 1);
+    }
+  }
+
+  @-ms-keyframes shadow {
+
+    0%,
+    100% {
+      -ms-transform: scale(1, 1);
+    }
+
+    50% {
+      -ms-transform: scale(1.2, 1);
+    }
+  }
+
+  @-webkit-keyframes shadow {
+
+    0%,
+    100% {
+      -webkit-transform: scale(1, 1);
+    }
+
+    50% {
+      -webkit-transform: scale(1.2, 1);
+    }
+  }
+
+  @-moz-keyframes shadow {
+
+    0%,
+    100% {
+      -moz-transform: scale(1, 1);
+    }
+
+    50% {
+      -moz-transform: scale(1.2, 1);
+    }
+  }
+</style>
+
+<body>
+  <app-root>
+    <div class="cssload-box-loading"></div>
+    <br>
+    <div style="text-align: center;color:white">
+      Loading..
+    </div>
+  </app-root>
+</body>
+
+</html>

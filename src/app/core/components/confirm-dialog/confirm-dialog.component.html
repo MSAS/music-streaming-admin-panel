@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+    <p>{{message}} </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close(false)">{{cancelTitle}}</button>
+    <button *ngIf="confirmColor === 'primary'" mat-raised-button color="primary" (click)="dialogRef.close(true)">{{confirmTitle}}</button>
+    <button *ngIf="confirmColor === 'warn'" mat-raised-button color="warn" (click)="dialogRef.close(true)">{{confirmTitle}}</button>
+</div>

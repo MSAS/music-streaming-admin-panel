@@ -1,0 +1,23 @@
+.alert-cards {
+    padding: 5px;
+}
+.services{
+    padding-top: 25px;
+}
+.alerts{
+    padding-bottom: 25px;
+
+}
+.service-cards {
+    padding: 5px;
+}
+
+.marginRight{
+    margin-left: 95px;
+    margin-top: 10px;
+}
+@media screen and (max-width:630px){
+    .container{
+        padding: 0px;
+    }
+}

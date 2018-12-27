@@ -1,0 +1,11 @@
+<div class="pagination">
+    <ul>
+        <li class="previous" [class.disabled]="isFirstPage()">
+            <a (click)="show(1)">&laquo;</a>
+        </li>
+
+        <li class="next" [class.disabled]="isLastPage()">
+            <a (click)="show(totalPages)">&raquo;</a>
+        </li>
+    </ul>
+</div>

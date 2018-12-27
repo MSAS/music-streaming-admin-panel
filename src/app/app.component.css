@@ -1,0 +1,86 @@
+.app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.main-content {
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('/assets/images/background.png');
+    display: flow-root;
+    background-color: gray;
+    background-size: cover;
+    background-repeat: inherit;
+    /* position: relative;
+    margin-left: -10px;
+    padding-left: 20px;
+    margin-right: -10px;
+    padding-right: 20px; */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.app-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+.app-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+    top: 64px;
+    min-height: 100vh;
+}
+
+.app-is-mobile .app-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+    top: 56px;
+}
+
+.env {
+    text-align: center;
+    width: 100px;
+    transform: rotate(-90deg);
+    position: fixed;
+    z-index: 2;
+    top: 50vh;
+    margin-left: -30px;
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+.env.dev {
+    color: #fff;
+    background: green;
+}
+
+.env.local {
+    color: #fff;
+    background: black;
+}
+
+.env.qa {
+    color: #fff;
+    background: orange;
+}
+
+.env.uat {
+    color: #fff;
+    background: red;
+}

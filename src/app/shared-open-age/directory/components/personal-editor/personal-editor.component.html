@@ -1,0 +1,98 @@
+<!-- personal section-->
+<form [formGroup]="employeeForm">
+
+    <ng-container formGroupName="profile">
+
+
+        <mat-form-field class="half-width">
+            <mat-select placeholder="Gender" formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="others">Others</mat-option>
+            </mat-select>
+            <mat-error *ngIf="employeeForm.get('profile.gender').hasError('required')">
+                Gender is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+            <input matInput [matDatepicker]="dobPicker" placeholder="Date of Birth" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dobPicker></mat-datepicker>
+            <mat-error *ngIf="employeeForm.get('profile.dob').hasError('required')">
+                Gender is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+            <input matInput placeholder="Father/Husband Name" formControlName="fatherName">
+            <mat-hint>Optional</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+            <mat-select placeholder="Blood Group" formControlName="bloodGroup">
+                <mat-option value="A+">A+</mat-option>
+                <mat-option value="B+">B+</mat-option>
+                <mat-option value="O+">O+</mat-option>
+                <mat-option value="AB+">AB+</mat-option>
+                <mat-option value="A-">A-</mat-option>
+                <mat-option value="B-">B-</mat-option>
+                <mat-option value="O-">O-</mat-option>
+                <mat-option value="AB-">AB-</mat-option>
+            </mat-select>
+            <mat-hint>Optional</mat-hint>
+        </mat-form-field>
+
+    </ng-container>
+
+
+    <label class="section">Contact</label>
+    <ng-container formGroupName="address">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Line 1" formControlName="line1">
+
+            <mat-error *ngIf="employeeForm.get('address.line1').hasError('required')">
+                Line 1 is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Line 2" formControlName="line2">
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="District" formControlName="district">
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="employeeForm.get('address.city').hasError('required')">
+                City is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Pin Code" formControlName="pinCode">
+            <mat-hint>If country is blank, it auto fills the address</mat-hint>
+            <mat-error *ngIf="employeeForm.get('address.pinCode').hasError('required')">
+                Pin Code is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="State" formControlName="state">
+            <mat-error *ngIf="employeeForm.get('address.state').hasError('required')">
+                State is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="Country" formControlName="country">
+            <mat-error *ngIf="employeeForm.get('address.country').hasError('required')">
+                Country is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </ng-container>
+</form>
+
+<mat-action-row>
+    <button mat-button (click)="resetForm()"> Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="!this.employeeForm.dirty || this.employeeForm.invalid">
+        Save
+      </button>
+</mat-action-row>

@@ -1,0 +1,12 @@
+<a [routerLink]="[employee.code]">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{employee.profile.firstName }} {{employee.profile.lastName}}</mat-card-title>
+            <mat-card-subtitle>
+                <span *ngIf="employee.designation">{{employee.designation?.name }}</span>
+                <span *ngIf="!employee.designation">--</span></mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image onerror="if (this.src != 'assets/images/no-user-image.png') this.src = 'assets/images/no-user-image.png';" alt="device pic" [src]="employee.profile.pic.url || 'assets/images/no-user-image.png'">
+        <mat-card-content>Code: {{employee.code}}</mat-card-content>
+    </mat-card>
+</a>

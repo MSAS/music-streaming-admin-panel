@@ -1,0 +1,89 @@
+<form [formGroup]="employeeForm">
+    <ng-container formGroupName="profile">
+        <mat-form-field class="half-width">
+            <input matInput placeholder="First Name" formControlName="firstName">
+            <mat-error *ngIf="employeeForm.get('profile.firstName').hasError('required')">
+                First name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+        </mat-form-field>
+    </ng-container>
+
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Employee No" type="number" formControlName="code">
+        <mat-hint *ngIf="this.employee?.id">Leave it blank to auto-generate</mat-hint>
+        <mat-error *ngIf="employeeForm.get('code').hasError('pattern')">
+            Please enter a valid employee number
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <input type="text" placeholder="Supervisor" aria-label="Supervisor" matInput formControlName="supervisor" [matAutocomplete]="employeePicker">
+        <mat-error *ngIf="employeeForm.get('supervisor').hasError('required')">
+            Supervisor is <strong>required</strong>
+        </mat-error>
+        <mat-autocomplete autoActiveFirstOption #employeePicker="matAutocomplete" [displayWith]="displayEmployee">
+            <mat-option *ngFor="let option of filteredEmployees | async" [value]="option">
+                {{option.profile.firstName}} {{option.profile.lastName}} ({{option.code}})
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+        <input type="text" placeholder="Designation" aria-label="Designation" matInput formControlName="designation" [matAutocomplete]="designationPicker">
+        <mat-hint *ngIf="employeeForm.get('designation').value && !employeeForm.get('designation').value.id">Saving will create new designation '{{employeeForm.get('designation').value.name}}'</mat-hint>
+        <mat-autocomplete autoActiveFirstOption #designationPicker="matAutocomplete" [displayWith]="displayDesignation">
+            <mat-option *ngFor="let option of filteredDesignations | async" [value]="option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="half-width">
+        <input type="text" placeholder="Department" aria-label="Department" matInput formControlName="department" [matAutocomplete]="departmentPicker">
+        <mat-hint *ngIf="employeeForm.get('department').value && !employeeForm.get('department').value.id">Saving will create new department '{{employeeForm.get('department').value.name}}'</mat-hint>
+        <mat-autocomplete autoActiveFirstOption #departmentPicker="matAutocomplete" [displayWith]="displayDepartment">
+            <mat-option *ngFor="let option of filteredDepartments | async" [value]="option">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-hint>Official Email Id!</mat-hint>
+
+        <mat-error *ngIf="employeeForm.get('email').hasError('pattern')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="employeeForm.get('email').hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Phone" formControlName="phone">
+        <mat-error *ngIf="employeeForm.get('phone').hasError('pattern')">
+            Please enter a valid phone number
+        </mat-error>
+        <mat-error *ngIf="employeeForm.get('phone').hasError('required')">
+            Phone No is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <mat-select placeholder="Status" formControlName="status">
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="in-complete">In Complete</mat-option>
+            <mat-option value="in-active">In Active</mat-option>
+        </mat-select>
+        <mat-error *ngIf="employeeForm.get('status').hasError('required')">
+            Status is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+</form>
+
+<mat-action-row>
+    <button mat-button (click)="resetForm()"> Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="!this.employeeForm.dirty || this.employeeForm.invalid">
+        Save
+      </button>
+</mat-action-row>

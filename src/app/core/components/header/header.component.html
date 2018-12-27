@@ -1,0 +1,28 @@
+<ng-container *ngIf="role">
+  <mat-toolbar class="mat-elevation-z1" color="primary">
+    <button mat-icon-button (click)="sideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- <div class="icons">
+            <span *ngIf="role && role.organization" mat-button [matMenuTriggerFor]="groupIcons">
+                <mat-icon>apps</mat-icon>
+            </span>
+            <mat-menu #groupIcons="matMenu" [overlapTrigger]="false" yPosition="below">
+                <app-group-icons></app-group-icons>
+            </mat-menu>
+        </div> -->
+    <h2>
+      <a router-link="['']">
+        <span *ngIf="!role || !role.organization">{{tenant.name}}</span>
+        <span *ngIf="role && role.organization">{{role.organization.name}}</span>
+      </a>
+    </h2>
+
+    <div flex class="fill-remaining-space"></div>
+
+    <ng-container>
+      <button mat-button (click)="logout()">Logout</button>
+    </ng-container>
+  </mat-toolbar>
+  <app-context-bar></app-context-bar>
+</ng-container>

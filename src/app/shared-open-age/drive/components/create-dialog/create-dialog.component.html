@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="createFolder" *ngIf="data.msg == 'create_folder'">
+    <h3>Create Folder</h3>
+    <mat-form-field>
+      <input matInput placeholder="Name" value="name" [(ngModel)]="folderName">
+    </mat-form-field>
+    <br>
+    <br>
+    <div class="button">
+      <button mat-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" (click)="create()" [disabled]="!folderName">Save</button>
+    </div>
+
+  </div>
+  <div class="createFile" *ngIf="data.msg == 'upload_file'">
+    <h3>Upload File</h3>
+    <mat-form-field>
+      <input matInput placeholder="File name" value="name" [(ngModel)]="fileName">
+    </mat-form-field>
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+    <br>
+    <br>
+    <div class="button">
+      <button mat-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" (click)="upload()" [disabled]="!fileName || !fileToUpload">Save</button>
+    </div>
+  </div>
+
+</div>

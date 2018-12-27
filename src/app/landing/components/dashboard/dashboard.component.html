@@ -1,0 +1,118 @@
+<!-- <div class="alert-cards">
+        <app-alert-card *ngIf="myAlerts.lenghth || teamAlerts.length" [alerts]="myAlerts" [teamAlerts]= "teamAlerts"></app-alert-card>
+</div> -->
+<!-- <div class="alert-cards">
+    <mat-grid-list cols="8" rowHeight="1:1">
+        <mat-grid-tile *ngIf="myAlerts.lenghth || teamAlerts.length">
+            <app-alert-card [alerts]="myAlerts" [teamAlerts]= "teamAlerts"></app-alert-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div> -->
+<div class="container">
+    <!-- <div *ngIf="myAlerts.length" class="row marginRight">
+        <h5>Insights</h5>
+    </div>
+    <div class="alerts">
+        <app-alert-list [alerts]="myAlerts" [group]="'my'"></app-alert-list>
+    </div>
+    <div class="alerts">
+        <app-alert-list [alerts]="teamAlerts" [group]="'team'"></app-alert-list>
+    </div> -->
+
+    <!-- <div *ngFor="let service of services">
+        <div *ngIf="service.code == 'axon'">
+            <app-axon-summary [service]="service"></app-axon-summary>
+        </div>
+    </div> -->
+
+    <!-- <div *ngFor="let service of services"> -->
+
+        <!-- <div>
+            <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 " *ngIf="service.code == 'send-it'" style="float: left">
+                <app-send-it-summary [service]="service"></app-send-it-summary>
+            </div>
+            <div class="col-sm-12 col-xs-12 col-md-9 col-lg-9" *ngIf="service.code == 'bap'" style="float: left">
+                <app-bap-summary [service]="service"></app-bap-summary>
+            </div>
+        </div> -->
+
+
+
+
+        <!-- <div class="col-sm-12 col-xs-12 col-md-8 col-lg-8" *ngIf="service.code == 'bap'" style="float: left">
+                <app-bap-summary [service]="service"></app-bap-summary>
+            </div> -->
+        <!-- <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3" *ngIf="service.code == 'send-it'" style="float: left">
+            <app-bap-summary [service]="service"></app-bap-summary>
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 " *ngIf="service.code == 'ams'" style="float: left">
+            <app-ams-summary [service]="service"></app-ams-summary>
+        </div> -->
+
+
+
+    <!-- </div> -->
+
+    <!-- <br>
+
+    <div *ngFor="let service of services">
+
+
+    <br>
+
+    <div class='row' *ngFor="let service of services">
+
+
+    </div> -->
+</div>
+
+
+
+
+
+<!-- <div *ngFor="let service of services" [ngSwitch]="service.code">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3" *ngIf="service.code == 'send-it'">
+            <app-send-it-summary *ngSwitchCase="'send-it'" [service]="service"></app-send-it-summary>
+        </div>
+
+        <div class="col-sm-7 col-md-7 col-lg-7 col-xl-7" *ngIf="service.code =='ams'">
+            <app-ams-summary *ngSwitchCase="'ams'" [service]="service"></app-ams-summary>
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <app-ams-summary *ngSwitchCase="'ams'" [service]="service"></app-ams-summary>
+        </div>
+
+    </div>
+</div> -->
+
+
+
+
+
+
+
+<!-- <div class="service-cards">
+    <mat-grid-list cols="4">
+
+        <mat-grid-tile *ngFor="let service of services" [ngSwitch]="service.code">
+            <app-ams-summary *ngSwitchCase="'ams'" [service]="service"></app-ams-summary> -->
+<!-- <app-send-it-summary *ngSwitchCase="'send-it'" [service]="service"></app-send-it-summary> -->
+<!-- <app-bap-summary *ngSwitchCase="'bap'" [service]="service"></app-bap-summary>
+            <app-asset-summary *ngSwitchCase="'asset'" [service]="service"></app-asset-summary>
+            <app-academics-summary *ngSwitchCase="'academics'" [service]="service"></app-academics-summary> -->
+<!--
+            <mat-card *ngSwitchDefault>
+                <mat-card-header>
+                    <h3>{{service.name}}</h3>
+                </mat-card-header>
+                <mat-card-content> SHOW Service Summary here</mat-card-content>
+
+                <mat-card-actions>
+                    <a mat-button [href]="service.apps.web">View</a>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div> -->

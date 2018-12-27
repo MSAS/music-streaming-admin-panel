@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <div *ngIf="user">{{user.name}}</div>
+</mat-toolbar>
+
+<mat-drawer-container>
+  <div>
+    <mat-nav-list *ngFor="let subNav of nav">
+      <div class="container">
+        <p class="navHeading">
+          {{subNav.title}}
+        </p>
+        <div *ngFor="let item of subNav.items">
+          <mat-list-item>
+            <a [routerLink]="item.routerLink" routerLinkActive="activeTab"><b>{{item.title}}</b></a>
+          </mat-list-item>
+        </div>
+      </div>
+    </mat-nav-list>
+  </div>
+
+</mat-drawer-container>

@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "ui(dev)",
+            "url": "http://localhost:4200",
+            "runtimeArgs": [
+                "--user-data-dir",
+                "--remote-debugging-port=9222"
+            ],
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}/src/app"
+        }
+    ]
+}

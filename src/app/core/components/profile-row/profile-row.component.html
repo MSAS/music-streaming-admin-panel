@@ -1,0 +1,12 @@
+<div class="profile-row" [class.details]="showDetails">
+    <!-- <div class="avatar" [style.background]="'url(' + profile.pic.url + ')'" [style.background-size]="'cover'"></div> -->
+    <img [src]="profile.pic.url" alt="Avatar" width="50px;">
+    <div class="content">
+        <strong>{{profile.firstName}}&nbsp;{{profile.lastName}}</strong>
+        <p *ngIf="employee && employee.designation">
+            {{employee.designation.name}}</p>
+        <p *ngIf="role.organization && showDetails">
+            {{role.organization.name}}
+        </p>
+    </div>
+</div>

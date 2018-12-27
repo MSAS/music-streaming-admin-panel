@@ -1,0 +1,44 @@
+.profile-row {
+    width: 100%;
+}
+
+.profile-row img {
+    margin-top: 5px;
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+
+.profile-row .content {
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+.profile-row .content p {
+    line-height: 5px;
+    margin-top: 5px;
+}
+
+.profile-row.details {
+    width: 250px;
+}
+
+.profile-row.details .avatar {
+    margin-top: 10px;
+}
+
+.profile-row.details .content {
+    height: 75px;
+}
+
+.profile-row.details .content strong {
+    padding-bottom: 5px;
+}
+@media screen and (max-width:650px){
+
+    .profile-row .content {
+    margin-left: 0px;
+    display: none;
+    
+}
+}

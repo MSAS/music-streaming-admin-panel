@@ -1,0 +1,35 @@
+.pagination {
+    height: 50px;
+    /* background: #fff; */
+}
+
+.pagination ul {
+    /* display: inline-block; */
+    padding: 0;
+    margin: 0;
+    float: right;
+}
+
+.pagination ul li {
+    display: inline;
+}
+
+.pagination ul li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination ul a.active {
+    background-color: --primary;
+    color: white;
+}
+
+.pagination ul a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination a {
+    transition: background-color .3s;
+}

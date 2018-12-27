@@ -1,0 +1,38 @@
+.file {
+    height: 150px;
+    border: 1px solid gray;
+    margin: 1%;
+    border-radius: 5px;
+    box-shadow: 1px black;
+    cursor: pointer;
+    padding: 0px !important;
+}
+.file .fileBody {
+    height: 80%
+}
+.file .fileBody mat-icon{
+    font-size: 30px;
+    float: right;
+}
+.file .fileHead {
+    width: 100%;
+    height: 20%;
+    border:1px solid gray;
+    border-radius: 0px 0px 5px 5px;
+    padding: 0px !important;
+}
+.folders {
+    height: 50px;
+    border: 1px solid gray;
+    margin: 1%;
+    border-radius: 5px;
+    cursor: pointer;    
+}
+.folders .material-icons, span {
+    font-size: 30px !important;
+    margin: 7px;
+}
+.folders span {
+    font-size: 15px !important;
+    margin: 7px;
+}

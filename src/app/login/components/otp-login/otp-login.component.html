@@ -1,0 +1,28 @@
+<ng-container *ngIf="!user">
+    <h3>Login</h3>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Phone" [(ngModel)]="key" (keyup.enter)="next()">
+    </mat-form-field>
+    <mat-card-actions class="footer">
+        <div class="spacer"></div>
+        <button mat-raised-button color="primary" (click)="next()">Next</button>
+    </mat-card-actions>
+</ng-container>
+
+<ng-container *ngIf="user">
+    <h3>OTP Confirmation</h3>
+    <div class="otp">
+        <input autofocus type="text" #char1 (keyup)="focusToNext(char1, char2)" minlength="1" maxlength="1" [(ngModel)]="otp.char_1" name="char_1" required>
+        <input type="text" #char2 (keyup)="focusToNext(char2, char3)" minlength="1" maxlength="1" [(ngModel)]="otp.char_2" name="char_2" required>
+        <input type="text" #char3 (keyup)="focusToNext(char3, char4)" minlength="1" maxlength="1" [(ngModel)]="otp.char_3" name="char_3" required>
+        <input type="text" #char4 (keyup)="focusToNext(char4, char5)" minlength="1" maxlength="1" [(ngModel)]="otp.char_4" name="char_4" required>
+        <input type="text" #char5 (keyup)="focusToNext(char5, char6)" minlength="1" maxlength="1" [(ngModel)]="otp.char_5" name="char_5" required>
+        <input type="text" #char6 (keyup)="focusToNext(char6)" minlength="1" maxlength="1" [(ngModel)]="otp.char_6" name="char_6" required (keyup.enter)="confirm(otp)">
+    </div>
+
+    <mat-card-actions class="footer">
+        <div class="spacer"></div>
+        <button mat-button (click)="back()">Back</button>
+        <button mat-raised-button color="primary" (click)="confirm(otp)">Confirm</button>
+    </mat-card-actions>
+</ng-container>

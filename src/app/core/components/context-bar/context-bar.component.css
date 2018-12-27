@@ -1,0 +1,18 @@
+.context-bar {
+    background-color: #ffffff;
+}
+
+.search {
+    width: 80%;
+    padding: 10px;
+    margin-right: -50px;
+    margin-left: 20px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+}
+
+.search:focus {
+    border: none;
+    outline: none;
+}

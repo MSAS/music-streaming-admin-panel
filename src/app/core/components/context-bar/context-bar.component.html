@@ -1,0 +1,29 @@
+<mat-toolbar class="mat-elevation-z3 context-bar" *ngIf="show">
+    <h1>{{title}}</h1>
+    <div flex class="fill-remaining-space"></div>
+    <div layout="row" layout-align="end center" *ngIf="contextMenu">
+        <ng-container *ngFor="let item of contextMenu.items">
+            <ng-container *ngIf="item && (!item.type || item.type === 'button')">
+                <button mat-button *ngIf="!item.icon" (click)="item.event(item.value)" [disabled]="item.display === 'disabled'">{{item.title}}</button>
+                <button mat-icon-button [title]="item.title" (click)="item.event(item.value)" [disabled]="item.display === 'disabled'">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                  </button>
+            </ng-container>
+            <a mat-button *ngIf="item && item.type=== 'link'" [href]="item.value">{{item.title}}</a>
+            <ng-container *ngIf="item && item.type === 'toggle' && !item.icon">
+                <button mat-button *ngIf="!item.value" (click)="item.event(item.value)" [disabled]="item.display === 'disabled'">{{item.title}}</button>
+                <button mat-raised-button *ngIf="item.value" (click)="item.event(item.value)" [disabled]="item.display === 'disabled'">{{item.title}}</button>
+            </ng-container>
+
+            <ng-container *ngIf="item && item.type === 'toggle' && item.icon">
+                <button mat-mini-fab *ngIf="item.value" [title]="item.title" (click)="toggle(item)" color="primary">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                  </button>
+                <button mat-icon-button *ngIf="!item.value" [title]="item.title" (click)="toggle(item)" class="faded">
+                      <mat-icon>{{item.icon}}</mat-icon>
+                  </button>
+            </ng-container>
+
+        </ng-container>
+    </div>
+</mat-toolbar>

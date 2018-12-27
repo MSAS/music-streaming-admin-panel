@@ -1,0 +1,62 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Filters
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container *ngFor="let item of filters">
+
+        <ng-container [ngSwitch]="item.type">
+            <mat-form-field *ngSwitchCase="'text'" class="half-width">
+                <input matInput type="text" [placeholder]="item.title" [(ngModel)]="item.value">
+            </mat-form-field>
+            <mat-form-field *ngSwitchCase="'number'" class="half-width">
+                <input matInput type="number" [placeholder]="item.title" [(ngModel)]="item.value">
+            </mat-form-field>
+            <mat-form-field *ngSwitchCase="'date'" class="half-width">
+                <input matInput [matDatepicker]="datePicker" [(value)]="item.value" [placeholder]="item.title">
+                <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngSwitchCase="'month-picker'" class="half-width">
+                <input matInput [matDatepicker]="monthPicker" [(value)]="item.value" [placeholder]="item.title">
+                <mat-datepicker-toggle matSuffix [for]="monthPicker"></mat-datepicker-toggle>
+                <mat-datepicker #monthPicker startView="month"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field *ngSwitchCase="'year-picker'" class="half-width">
+                <input matInput [matDatepicker]="yearPicker" [(value)]="item.value" [placeholder]="item.title">
+                <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+                <mat-datepicker #yearPicker startView="year"></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'select'" class="half-width">
+                <mat-select [(value)]="item.value" [placeholder]="item.title">
+                    <mat-option *ngFor="let option of item.options" [value]="option.value">
+                        {{ option.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngSwitchCase="'autocomplete'" class="half-width">
+                <input matInput [(value)]="item.value" [placeholder]="item.title" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="autocompleteSelected($event)">
+                    <mat-option *ngFor="let option of item.options" [value]="option.value">
+                        {{ option.name }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-slide-toggle *ngSwitchCase="'slide-toggle'" [(checked)]="item.value">{{item.title}}</mat-slide-toggle>
+
+            <mat-button-toggle-group *ngSwitchCase="'toggle-group'" [(value)]="item.value">
+                <mat-button-toggle [value]="option.value" *ngFor="let option of item.options">
+                    <mat-icon>{{option.icon}}</mat-icon>
+                    <ng-container *ngIf="option.name">{{option.name}}</ng-container>
+                </mat-button-toggle>
+            </mat-button-toggle-group>
+        </ng-container>
+    </ng-container>
+
+    <mat-action-row>
+        <button mat-button color="primary" (click)="apply()">Apply</button>
+    </mat-action-row>
+</mat-expansion-panel>
