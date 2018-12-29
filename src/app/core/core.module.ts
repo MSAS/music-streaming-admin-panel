@@ -23,7 +23,9 @@ import {
   MatCheckboxModule,
   MatCardModule,
   MatTooltipModule,
-  MatAccordion
+  MatOptionModule,
+  MatFormFieldModule
+  // MatAccordionModule,
 } from '@angular/material';
 
 

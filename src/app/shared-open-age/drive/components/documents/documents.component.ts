@@ -100,7 +100,7 @@ export class DocumentsComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.isProcessing = true;
-          let fileService = new FileService('123', '123', response.name, this.http, this.roleService);
+          let fileService = new FileService(this.http, this.roleService);
           fileService.upload(response.file).subscribe(data => {
             this.getAllFiles()
             console.log(data)

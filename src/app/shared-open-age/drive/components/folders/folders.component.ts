@@ -115,8 +115,8 @@ export class FoldersComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.isProcessing = true
-          let fileService = new FileService('123', '123', response.name, this.http, this.roleService);
-          fileService.upload(response.file, '', { 'folder-id': this.folderId }).subscribe(data => {
+          let fileService = new FileService(this.http, this.roleService);
+          fileService.upload(response.file, response.name, { 'folder-id': this.folderId }).subscribe(data => {
             this.isProcessing = false
             this.getAllFolderById()
           }, error => {

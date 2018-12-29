@@ -7,7 +7,7 @@ import { IApi } from '@open-age/ng-api';
 @Injectable()
 export class FileService extends DriveApiBase<File> {
 
-  constructor(entityId:string, entityType:string,fileName:string , http?: Http, roleService?: RoleService) {
-    super(`${entityId}/${entityType}/files/${fileName}`, http, roleService);
+  constructor(http: Http, roleService: RoleService) {
+    super(`123/123/files`, http, roleService);
   }
 }
