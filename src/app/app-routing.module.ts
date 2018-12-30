@@ -11,13 +11,21 @@ import { FoldersComponent } from './shared-open-age/drive/components/folders/fol
 
 const routes: Routes = [
 
-  {  path: '', component: DocumentsComponent , canActivate: [RoleGuard], pathMatch: 'full' },
+  // {  path: '', component: DocumentsComponent , canActivate: [RoleGuard], pathMatch: 'full' },
   { path: 'login', loadChildren: 'app/login/login.module#LoginModule', canActivate: [GuestGuard] },
 
   {
+    path: '', children: [
+      { path: '', component: DocumentsComponent },
+      { path: ':id', component: FoldersComponent }],
+      canActivate: [RoleGuard], pathMatch: 'full' ,
+      
+  },
+  {
     path: 'drive', children: [
       { path: '', component: DocumentsComponent },
-      { path: ':id', component: FoldersComponent }]
+      { path: ':id', component: FoldersComponent }],
+      canActivate: [RoleGuard], pathMatch: 'full' 
   },
 
 
