@@ -10,7 +10,7 @@
           {{subNav.title}}
         </p>
         <div *ngFor="let item of subNav.items">
-          <mat-list-item>
+          <mat-list-item  [routerLink]="item.routerLink" routerLinkActive="activeTab">
             <a [routerLink]="item.routerLink" routerLinkActive="activeTab"><b>{{item.title}}</b></a>
           </mat-list-item>
         </div>

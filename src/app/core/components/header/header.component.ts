@@ -67,17 +67,13 @@ export class HeaderComponent implements OnInit, OnChanges {
     }
   }
 
-  showRoleSelector() {
-    this.router.navigate(['/', 'login'], { skipLocationChange: false });
-    this.roleService.setRole();
-  }
 
   join() {
     this.router.navigateByUrl(this.tenant.joinUrl);
   }
   logout = () => {
     this.roleService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
   ngOnInit() {
