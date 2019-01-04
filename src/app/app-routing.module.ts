@@ -25,7 +25,6 @@ const routes: Routes = [
     path: 'drive', children: [
       { path: '', component: DocumentsComponent },
       { path: ':id', component: FoldersComponent }],
-      canActivate: [RoleGuard], pathMatch: 'full' 
   },
 
 
