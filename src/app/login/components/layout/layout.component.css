@@ -1,4 +1,6 @@
+@import 'http://akveo.com/blur-admin-mint/styles/auth-a200a050c1.css';
 .login-card {
+    top: 100px;
     max-width: 500px;
     /* min-width: 60%; */
     margin-left: auto;
@@ -8,7 +10,6 @@
 .login-card .footer {
     padding-top: 20px;
 }
-
 
 /* .app-name {
     text-align: center;

@@ -39,12 +39,12 @@ export const environment = {
     vms: 'http://vms-web-qa.m-sas.com'
   },
   tenant: {
-    code: 'axon',
+    code: 'music',
   },
   tenants: {
-    axon: {
-      name: 'AXON',
-      code: 'axon',
+    music: {
+      name: 'DJ Rick',
+      code: 'music',
       homeUrl: 'http://axon-qa.m-sas.com',
       joinUrl: 'http://axon-qa.m-sas.com/join',
       logo: 'https://static1.squarespace.com/static/5309226fe4b0c194bcbbfd0d/t/5548e440e4b0cbbc3dff4318/1430840385238/Logo_erp.png'

@@ -102,7 +102,7 @@ export class RoleService {
       localStorage.removeItem('role-key');
     }
     this._roleSubject.next(this._role);
-    if (this._role && this._role.organization) {
+    if (this._role) {
       this.uxService.exitFullScreen();
     } else {
       this.uxService.setFullScreen();
@@ -151,13 +151,13 @@ export class RoleService {
   }
 
   verify(id: string, otp: string): Observable<User> {
-    let data = {
+    const data = {
       id: id,
       // mobile: '',
       // email: '',
       otp: otp
-    }
-    return this._authApi.post(data,'confirm').map(data => {
+    };
+    return this._authApi.post(data, 'confirm').map(data => {
       const user = this._setUser(new User(data));
       const role = this._extractRole(user);
       this._setRole(role);
@@ -348,7 +348,7 @@ export class RoleService {
     localStorage.clear();
     this._roleSubject.next(null);
     this._userSubject.next(null);
-    window.location.href = this.currentTenant().homeUrl;
+    // window.location.href = this.currentTenant().homeUrl;
     this.uxService.setFullScreen();
   }
 }

@@ -7,6 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { RoleService } from './open-age/directory/services';
+import { User } from './open-age/directory/models';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +17,15 @@ import { RoleService } from './open-age/directory/services';
 export class AppComponent implements OnInit, OnDestroy {
   isFullScreen = true;
   mobileQuery: MediaQueryList;
+
+  currentUser: User;
+
   private _mobileQueryListener: () => void;
   envName: string;
   constructor(
     private router: Router,
     private uxService: UxService,
-    private roleService: RoleService,
+    public auth: RoleService,
     private toastyService: ToastyService,
     private toastyConfig: ToastyConfig,
     media: MediaMatcher,
@@ -60,11 +64,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.toastyService.error(err);
     });
 
+    this.currentUser = this.auth.currentUser();
+
+    this.auth.userChanges.subscribe(user => this.currentUser = user);
 
   }
 
   ngOnInit() {
-    this.roleService.refreshUser();
+    this.auth.refreshUser();
 
     this.uxService.fullScreen.subscribe(value => {
       this.isFullScreen = value;

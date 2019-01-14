@@ -20,10 +20,17 @@ export class SideNavComponent implements OnInit {
     this.user = this.roleService.currentUser();
 
     this.nav = [{
-      title: 'Drive',
+      title: 'Music',
       items: [{
-        title: 'Docs',
+        title: 'Files',
         routerLink: ['drive'],
+        permissions: ['system.admin']
+      }]
+    }, {
+      title: 'Administration',
+      items: [{
+        title: 'Users',
+        routerLink: ['users'],
         permissions: ['system.admin']
       }]
     }];

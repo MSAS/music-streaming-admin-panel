@@ -6,9 +6,10 @@ h2>a {
     text-decoration: none;
     color: #fff;
 }
-mat-icon{
+
+mat-icon {
     font-size: 40px;
-    padding-right:40px;
+    padding-right: 40px;
     padding-top: 10px;
     cursor: pointer;
 }
@@ -143,30 +144,36 @@ mat-icon{
     float: left;
 }
 
-.icons{
+.icons {
     float: left;
     display: none;
     padding-right: 25px;
 }
-.icons2{
+
+.icons2 {
     display: block;
     float: left;
 }
-button{
+
+button {
     width: auto;
 }
 
-@media screen and (max-width:630px){
-    .icons{
+@media screen and (max-width:630px) {
+    .icons {
         float: left;
         display: block;
         padding: 5px;
     }
-    .icons2{
+    .icons2 {
         display: none;
     }
-    button{
+    button {
         width: auto;
     }
 }
 
+.page-top {
+    background-color: #162734;
+    color: #fff;
+}

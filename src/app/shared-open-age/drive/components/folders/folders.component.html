@@ -1,43 +1,17 @@
 <mat-spinner class="custom_spinner" mode="indeterminate" *ngIf="isProcessing"></mat-spinner>
-<mat-card>
-  <h5>{{folderName}}</h5>
-  <div>
-    <div class="row">
-      <div *ngFor="let folder of folders" class="folders col-sm-2 col-xs-2 col-md-2 col-lg-2">
-        <div class="row" (click)="openFolder(folder)">
-          <mat-icon>folder</mat-icon>
-          <span>{{folder.name}}</span>
-        </div>
-      </div>
-      <div class="folders col-sm-2 col-xs-2 col-md-2 col-lg-2">
-        <div class="row" (click)="createFolder()">
-          <mat-icon>create_new_folder</mat-icon>
-          <span>Create Folder</span>
-        </div>
-      </div>
-    </div>
+<h5><a [routerLink]="['/drive']">Genres</a>/{{folderName}}</h5>
+<div class="content row">
+  <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2" *ngFor="let file of files">
+    <mat-card (click)="openFolder(folder)" class="music" matTooltip="{{file.name}}" (click)="openFile(file.url)">
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>{{(file?.name?.length > 15) ? (file.name | slice:0:15) +'..':file.name }}</mat-card-content>
+    </mat-card>
+  </div>
+  <div class="file col-sm-2 col-xs-2 col-md-2 col-lg-2">
+    <mat-card (click)="uploadFile()" class="music">
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>New File</mat-card-content>
+    </mat-card>
 
   </div>
-  <br>
-  <h5>Files</h5><br>
-  <div class="content row">
-
-    <div class="file col-sm-2 col-xs-2 col-md-2 col-lg-2" *ngFor="let file of files" matTooltip="{{file.name}}" (click)=openFile(file.url)>
-      <div class="fileBody">
-        <mat-icon>cloud_download</mat-icon>
-      </div>
-      <div class="fileHead">
-        <b>{{(file?.name?.length > 15) ? (file.name | slice:0:15) +'..':file.name }}</b>
-      </div>
-    </div>
-
-    <div class="file col-sm-2 col-xs-2 col-md-2 col-lg-2" (click)="uploadFile()">
-      <div class="fileBody">
-        <mat-icon>cloud_upload</mat-icon>
-      </div>
-      <div class="fileHead">
-        <b>Upload File</b>
-      </div>
-    </div>
-  </div>
-</mat-card>
+</div>

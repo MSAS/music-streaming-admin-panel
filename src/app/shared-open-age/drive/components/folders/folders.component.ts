@@ -15,13 +15,13 @@ import { RoleService } from '../../../../open-age/directory/services';
 })
 export class FoldersComponent implements OnInit {
 
-  folderId: string
-  folderName: string
+  folderId: string;
+  folderName: string;
   dialogRef: any;
-  tokenType = '123'
-  tokenId = '123'
+  tokenType = '123';
+  tokenId = '123';
   fileToUpload: File = null;
-  isProcessing: boolean = true
+  isProcessing = true;
 
   folders = [];
   files = [];
@@ -39,8 +39,8 @@ export class FoldersComponent implements OnInit {
       this.folderName = params['folderName'];
     });
     this.activatedRoute.params.subscribe(routeParams => {
-      this.folderId = routeParams.id
-      this.getAllFolderById()
+      this.folderId = routeParams.id;
+      this.getAllFolderById();
     });
 
   }
@@ -50,19 +50,19 @@ export class FoldersComponent implements OnInit {
   ngOnInit() {
   }
   getAllFolderById() {
-    this.isProcessing = true
+    this.isProcessing = true;
 
     this.docService.getAllFoldersById(this.folderId).subscribe(item => {
       this.folders = item.data.folders;
-      this.files = item.data.files
-      this.isProcessing = false
-    })
+      this.files = item.data.files;
+      this.isProcessing = false;
+    });
   }
   openFolder(folder) {
     this.folderId = folder.id;
-    this.folderName = folder.name
-    this.router.navigate([`/drive/${folder.id}`], { queryParams: { folderName: folder.name } })
-    this.getAllFolderById()
+    this.folderName = folder.name;
+    this.router.navigate([`/drive/${folder.id}`], { queryParams: { folderName: folder.name } });
+    this.getAllFolderById();
   }
   createFolder() {
     this.dialogRef = this.dialog.open(CreateDialogComponent, {
@@ -73,23 +73,23 @@ export class FoldersComponent implements OnInit {
     this.dialogRef.afterClosed()
       .subscribe(response => {
         if (response) {
-          let folderName = {
+          const folderName = {
             name: response,
             isPublic: false,
             limit: '50mb',
             parent: {
               id: this.folderId
             }
-          }
-          this.isProcessing = true
+          };
+          this.isProcessing = true;
           this.docService.postFolder(folderName)
             .subscribe(data => {
-              this.getAllFolderById()
-              this.isProcessing = false
+              this.getAllFolderById();
+              this.isProcessing = false;
 
             }, error => {
               console.log(error);
-              this.isProcessing = false
+              this.isProcessing = false;
 
             });
         }
@@ -102,7 +102,7 @@ export class FoldersComponent implements OnInit {
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    this.uploadFile()
+    this.uploadFile();
   }
 
   uploadFile() {
@@ -114,14 +114,14 @@ export class FoldersComponent implements OnInit {
     this.dialogRef.afterClosed()
       .subscribe(response => {
         if (response) {
-          this.isProcessing = true
-          let fileService = new FileService(this.http, this.roleService);
+          this.isProcessing = true;
+          const fileService = new FileService(this.http, this.roleService);
           fileService.upload(response.file, response.name, { 'folder-id': this.folderId }).subscribe(data => {
-            this.isProcessing = false
-            this.getAllFolderById()
+            this.isProcessing = false;
+            this.getAllFolderById();
           }, error => {
             console.log(error);
-            this.isProcessing = false
+            this.isProcessing = false;
           });
         }
       });
@@ -131,7 +131,7 @@ export class FoldersComponent implements OnInit {
   openFile(url) {
     const a = document.createElement('a');
     document.body.appendChild(a);
-    a.href = url
+    a.href = url;
     a.target = '_blank';
     a.setAttribute('style', 'display: none');
     a.download = 'test';

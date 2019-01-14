@@ -19,14 +19,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class DocumentsComponent implements OnInit {
 
-  tokenType = '123'
-  tokenId = '123'
+  tokenType = '123';
+  tokenId = '123';
   fileToUpload: File = null;
 
   files: File[];
   folders = [];
   dialogRef: any;
-  isProcessing: boolean = false;
+  isProcessing = false;
   constructor(
     private http: Http,
     private roleService: RoleService,
@@ -36,30 +36,30 @@ export class DocumentsComponent implements OnInit {
     public dialog: MatDialog,
     public _DomSanitizer: DomSanitizer
   ) {
-    this.getAllFiles()
-    this.getAllFolders()
+    this.getAllFiles();
+    this.getAllFolders();
   }
 
   ngOnInit() {
   }
 
   getAllFiles() {
-    this.isProcessing = true
+    this.isProcessing = true;
     this.docService.getAllDocument(this.tokenType, this.tokenId)
       .subscribe(result => {
-        this.files = result.items
-        this.isProcessing = false
-      })
-    console.log(this.folders)
+        this.files = result.items;
+        this.isProcessing = false;
+      });
+    console.log(this.folders);
   }
 
   getAllFolders() {
-    let id = 1;
-    this.isProcessing = true
+    const id = 1;
+    this.isProcessing = true;
     this.folderService.search({ isParent: 'true' }).subscribe(result => {
-      this.folders = result.items
-      this.isProcessing = false
-    })
+      this.folders = result.items;
+      this.isProcessing = false;
+    });
   }
 
   createFolder() {
@@ -72,18 +72,18 @@ export class DocumentsComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.isProcessing = true;
-          let folderName = {
+          const folderName = {
             name: response,
             isPublic: false,
             limit: '50mb'
-          }
+          };
           this.docService.postFolder(folderName)
             .subscribe(data => {
-              this.getAllFolders()
-              this.isProcessing = false
+              this.getAllFolders();
+              this.isProcessing = false;
             }, error => {
               console.log(error);
-              this.isProcessing = false
+              this.isProcessing = false;
             });
         }
       });
@@ -100,10 +100,10 @@ export class DocumentsComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           this.isProcessing = true;
-          let fileService = new FileService(this.http, this.roleService);
+          const fileService = new FileService(this.http, this.roleService);
           fileService.upload(response.file).subscribe(data => {
-            this.getAllFiles()
-            console.log(data)
+            this.getAllFiles();
+            console.log(data);
             this.isProcessing = false;
           }, error => {
             console.log(error);
@@ -115,13 +115,13 @@ export class DocumentsComponent implements OnInit {
   }
 
   openFolder(folder) {
-    this.router.navigate([`/drive/${folder.id}`], { queryParams: { folderName: folder.name } })
+    this.router.navigate([`/drive/${folder.id}`], { queryParams: { folderName: folder.name } });
   }
 
   openFile(url) {
     const a = document.createElement('a');
     document.body.appendChild(a);
-    a.href = url
+    a.href = url;
     a.target = '_blank';
     a.setAttribute('style', 'display: none');
     a.download = 'test';

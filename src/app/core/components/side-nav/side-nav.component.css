@@ -1,5 +1,14 @@
-.navHeading {
+.nav-heading {
     margin-top: 0;
     margin-bottom: 0;
-    color: #747577
+    color: #fff;
+    font-weight: 900;
+    font-size: larger;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+    font-weight: lighter;
 }

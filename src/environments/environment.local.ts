@@ -7,12 +7,12 @@ export const environment = {
   production: false,
   silent: false,
   firebase: {
-    apiKey: "AIzaSyBeGZJXRZCr6zfV00bZ6g2cBVkqNi8T_pE",
-    authDomain: "doctor-app-7aa0d.firebaseapp.com",
-    databaseURL: "https://doctor-app-7aa0d.firebaseio.com",
-    projectId: "doctor-app-7aa0d",
-    storageBucket: "doctor-app-7aa0d.appspot.com",
-    messagingSenderId: "796862766796"
+    apiKey: 'AIzaSyBeGZJXRZCr6zfV00bZ6g2cBVkqNi8T_pE',
+    authDomain: 'doctor-app-7aa0d.firebaseapp.com',
+    databaseURL: 'https://doctor-app-7aa0d.firebaseio.com',
+    projectId: 'doctor-app-7aa0d',
+    storageBucket: 'doctor-app-7aa0d.appspot.com',
+    messagingSenderId: '796862766796'
   },
   apiUrls: {
     axon: 'http://api-axon.m-sas.com/api',
@@ -38,12 +38,12 @@ export const environment = {
     vms: 'http://vms-web-dev.m-sas.com',
   },
   tenant: {
-    code: 'axon',
+    code: 'music',
   },
   tenants: {
-    axon: {
-      name: 'My MD',
-      code: 'axon',
+    music: {
+      name: 'DJ Rick',
+      code: 'music',
       homeUrl: 'http://localhost:4200',
       joinUrl: 'http://localhost:4200/join',
       logo: 'https://static1.squarespace.com/static/5309226fe4b0c194bcbbfd0d/t/5548e440e4b0cbbc3dff4318/1430840385238/Logo_erp.png'

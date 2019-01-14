@@ -30,18 +30,13 @@ export class RoleGuard implements CanActivate {
 
     if ((!currentRole && roleKey) || (currentRole && roleKey && currentRole.key !== roleKey)) {
       return this.roleService.setRoleKey(roleKey).map(role => {
-        if (!role.organization) {
-          return false;
-        } else {
-          return true;
-        }
+        return true;
       });
     }
 
-    if (!currentRole || !currentRole.organization) {
+    if (!currentRole) {
       if (tenant) {
         this.router.navigate(['/', 'login']);
-        // window.location.href = tenant.homeUrl;
       } else {
         this.router.navigate(['errors', 'not-found']);
       }

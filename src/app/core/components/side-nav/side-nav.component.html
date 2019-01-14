@@ -1,17 +1,13 @@
-<mat-toolbar>
-  <div *ngIf="user">{{user.name}}</div>
-</mat-toolbar>
-
 <mat-drawer-container>
-  <div>
+  <div class="al">
     <mat-nav-list *ngFor="let subNav of nav">
       <div class="container">
-        <p class="navHeading">
+        <p class="nav-heading">
           {{subNav.title}}
         </p>
         <div *ngFor="let item of subNav.items">
-          <mat-list-item  [routerLink]="item.routerLink" routerLinkActive="activeTab">
-            <a [routerLink]="item.routerLink" routerLinkActive="activeTab"><b>{{item.title}}</b></a>
+          <mat-list-item [routerLink]="item.routerLink" routerLinkActive="activeTab">
+            <a class="nav-item" [routerLink]="item.routerLink" routerLinkActive="activeTab"><b>{{item.title}}</b></a>
           </mat-list-item>
         </div>
       </div>

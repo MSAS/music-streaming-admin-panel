@@ -1,19 +1,19 @@
-<div class="main-content" *ngIf="isFullScreen">
-    <router-outlet></router-outlet>
+<div class="main-content-login" *ngIf="isFullScreen">
+  <router-outlet></router-outlet>
 </div>
 <div class="app-container" *ngIf="!isFullScreen" [class.app-is-mobile]="mobileQuery.matches">
-    <app-header [sideNav]="sideNav" class="app-navbar"> </app-header>
-    <mat-sidenav-container class="app-sidenav-container">
-        <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'">
-            <app-side-nav></app-side-nav>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <app-context-bar></app-context-bar>
-            <div class="main-content">
-                <router-outlet></router-outlet>
-            </div>
-            <app-footer></app-footer>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+  <app-header [sideNav]="sideNav" class="app-navbar"> </app-header>
+  <mat-sidenav-container class="app-sidenav-container al-main">
+    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'">
+      <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-context-bar></app-context-bar>
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- <app-footer></app-footer> -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 <div *ngIf="envName" class="env {{envName}}">{{envName}}</div>

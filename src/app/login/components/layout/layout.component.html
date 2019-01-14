@@ -1,11 +1,9 @@
 <div class="content">
-    <mat-card class="login-card">
-        <mat-toolbar color="primary">
-            <h2 class="app-name">{{tenant.name}}</h2>
-        </mat-toolbar>
+  <mat-card class="auth-block login-card">
+    <h1>Sign in to DJ Rick Geez</h1>
 
-        <ng-container [ngSwitch]="view">
-            <app-otp-login *ngSwitchCase="'otp'" (success)="loggedIn($event)"></app-otp-login>
-        </ng-container>
-    </mat-card>
+    <ng-container [ngSwitch]="view">
+      <app-otp-login *ngSwitchCase="'otp'" (success)="loggedIn($event)"></app-otp-login>
+    </ng-container>
+  </mat-card>
 </div>

@@ -32,14 +32,14 @@ export const environment = {
     vms: 'http://vms.mindfulsas.com',
   },
   tenant: {
-    code: 'axon',
+    code: 'music',
   },
   tenants: {
-    axon: {
-      name: 'My MD',
-      code: 'axon',
-      homeUrl: 'http://axon.mindfulsas.com',
-      joinUrl: 'http://axon.mindfulsas.com/join',
+    music: {
+      name: 'DJ Rick',
+      code: 'music',
+      homeUrl: 'http://music.mindfulsas.com',
+      joinUrl: 'http://music.mindfulsas.com/join',
       logo: 'https://static1.squarespace.com/static/5309226fe4b0c194bcbbfd0d/t/5548e440e4b0cbbc3dff4318/1430840385238/Logo_erp.png'
     }
   },
