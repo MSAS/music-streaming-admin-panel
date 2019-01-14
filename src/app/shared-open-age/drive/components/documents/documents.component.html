@@ -1,11 +1,13 @@
-<mat-spinner class="custom_spinner" mode="indeterminate" *ngIf="isProcessing"></mat-spinner>
 <h5>Genres</h5>
 
-<div class="row">
+<mat-spinner class="custom_spinner" mode="indeterminate" *ngIf="isProcessing"></mat-spinner>
+<div class="row" *ngIf="!isProcessing">
   <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3" *ngFor="let folder of folders">
     <mat-card (click)="openFolder(folder)" class="genre">
+      <mat-card-header>
+        <mat-card-title>{{folder.name}}</mat-card-title>
+      </mat-card-header>
       <img mat-card-image src="../assets/images/genres/{{folder.name.toLowerCase()}}.jpg">
-      <mat-card-content>{{folder.name}}</mat-card-content>
     </mat-card>
   </div>
 </div>

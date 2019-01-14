@@ -22,6 +22,9 @@ export class FoldersComponent implements OnInit {
   tokenId = '123';
   fileToUpload: File = null;
   isProcessing = true;
+  isUploading = false;
+
+  newFileName = 'Add New File';
 
   folders = [];
   files = [];
@@ -55,7 +58,9 @@ export class FoldersComponent implements OnInit {
     this.docService.getAllFoldersById(this.folderId).subscribe(item => {
       this.folders = item.data.folders;
       this.files = item.data.files;
+      this.isUploading = false;
       this.isProcessing = false;
+      this.newFileName = 'Add New File';
     });
   }
   openFolder(folder) {
@@ -88,15 +93,10 @@ export class FoldersComponent implements OnInit {
               this.isProcessing = false;
 
             }, error => {
-              console.log(error);
               this.isProcessing = false;
-
             });
         }
       });
-
-
-
   }
 
 
@@ -114,18 +114,16 @@ export class FoldersComponent implements OnInit {
     this.dialogRef.afterClosed()
       .subscribe(response => {
         if (response) {
-          this.isProcessing = true;
+          this.isUploading = true;
+          this.newFileName = response.name;
           const fileService = new FileService(this.http, this.roleService);
           fileService.upload(response.file, response.name, { 'folder-id': this.folderId }).subscribe(data => {
-            this.isProcessing = false;
             this.getAllFolderById();
           }, error => {
-            console.log(error);
-            this.isProcessing = false;
+            this.isUploading = false;
           });
         }
       });
-
   }
 
   openFile(url) {

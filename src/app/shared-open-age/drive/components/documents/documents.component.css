@@ -35,8 +35,25 @@
 
 .genre {
     margin-bottom: 30px;
-    height: 280px;
     opacity: 1;
+    padding-bottom: 0px;
+    background: var(--primary);
+    padding-top: 5px;
+}
+
+.genre .mat-card-header {
+    height: 35px;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.genre .mat-card-title {
+    font-size: x-large;
+}
+
+mat-card.genre>mat-card-header>div,
+.genre>.mat-card-header>.mat-card-header-text {
+    margin: 0 auto;
 }
 
 .folders .material-icons,

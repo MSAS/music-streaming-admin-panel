@@ -1,17 +1,28 @@
-<mat-spinner class="custom_spinner" mode="indeterminate" *ngIf="isProcessing"></mat-spinner>
 <h5><a [routerLink]="['/drive']">Genres</a>/{{folderName}}</h5>
-<div class="content row">
+<mat-spinner class="custom_spinner" mode="indeterminate" *ngIf="isProcessing"></mat-spinner>
+<div class="content row" *ngIf="!isProcessing">
   <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3" *ngFor="let file of files">
-    <mat-card (click)="openFolder(folder)" class="music" matTooltip="{{file.name}}" (click)="openFile(file.url)">
+    <mat-card class="music" matTooltip="{{file.name}}" (click)="openFile(file.url)">
       <img mat-card-image src="../assets/images/default-music.png">
       <mat-card-content>{{(file?.name?.length > 15) ? (file.name | slice:0:15) +'..':file.name }}</mat-card-content>
     </mat-card>
   </div>
   <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-    <mat-card (click)="uploadFile()" class="music">
-      <img mat-card-image src="../assets/images/music-new.png">
-      <mat-card-content>Add New File</mat-card-content>
+    <mat-card (click)="uploadFile()" class="music" [style.padding-top]="isUploading? '0': 'none'">
+      <div *ngIf="isUploading" class="processing">
+        <div class="outer">
+          <div class="middle">
+            <div class="lds-facebook">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img *ngIf="isUploading" mat-card-image src="../assets/images/music-uploading.png">
+      <img *ngIf="!isUploading" mat-card-image src="../assets/images/music-new.png">
+      <mat-card-content>{{newFileName}}</mat-card-content>
     </mat-card>
-
   </div>
 </div>
