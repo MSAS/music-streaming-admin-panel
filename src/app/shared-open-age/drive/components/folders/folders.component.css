@@ -55,6 +55,17 @@ h5 {
 
 .music {
     margin-bottom: 30px;
-    height: 185px;
-    opacity: 1;
+    height: 285px;
+    /* opacity: 1; */
+    /* background: var(--primary);
+    border: 1px solid var(--primary); */
+    /* border-radius: 21px; */
+}
+
+.music .mat-card-content {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    margin-top: -6px;
 }
