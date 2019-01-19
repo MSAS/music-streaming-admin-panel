@@ -3,7 +3,7 @@
 <div class="content row" *ngIf="!isProcessing">
   <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3" *ngFor="let file of files">
     <mat-card class="music" matTooltip="{{file.name}}" (click)="openFile(file.url)">
-      <img mat-card-image src="../assets/images/default-music.png">
+      <img mat-card-image [src]="file.thumbnail || '../assets/images/default-music.png'">
       <mat-card-content>{{(file?.name?.length > 15) ? (file.name | slice:0:15) +'..':file.name }}</mat-card-content>
     </mat-card>
   </div>

@@ -1,27 +1,15 @@
-# EduDashWeb
+# Music streaming admin panel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+It uses following API's of Open Age
 
-## Development server
+- [Directory](http://open-age-docs.m-sas.com/blog/2018/05/03/employee-directory/)
+- [Drive](http://open-age-docs.m-sas.com/blog/2018/07/27/docs/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Screenshots
 
-## Code scaffolding
+<div style="float:left;margin-left:5px;"><img width="80%" src="docs/screenshots/genres.jpeg"></div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technology
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular 5x
+- OpenAge 1x
