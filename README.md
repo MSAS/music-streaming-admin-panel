@@ -7,7 +7,7 @@ It uses following API's of Open Age
 
 ## Screenshots
 
-<div style="float:left;margin-left:5px;"><img width="80%" src="docs/screenshots/genres.jpeg"></div>
+<div style="float:left;margin-left:5px;"><img width="80%" src="docs/screenshots/genres.png"></div>
 
 ## Technology
 
